@@ -1,0 +1,423 @@
+<html>
+<head>
+<title>easy.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e8bf6a;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bababa;}
+.s3 { color: #a5c261;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+easy.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;head&gt;</span>
+        <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;easy.css&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;/head&gt;</span>
+    <span class="s0">&lt;body&gt;</span>
+        <span class="s0">&lt;hr </span><span class="s2">id</span><span class="s3">=&quot;top-divider&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class </span><span class="s3">= &quot;TaskBar&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href </span><span class="s3">= &quot;index.html&quot; </span><span class="s2">class </span><span class="s3">= &quot;link&quot;</span><span class="s0">&gt;&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;task-button&quot;</span><span class="s0">&gt;</span><span class="s1">Homepage</span><span class="s0">&lt;/h3&gt;&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href </span><span class="s3">= &quot;easy.html&quot; </span><span class="s2">class </span><span class="s3">= &quot;link&quot;</span><span class="s0">&gt;&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;task-button&quot;</span><span class="s0">&gt;</span><span class="s1">Easy Problems</span><span class="s0">&lt;/h3&gt;&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href </span><span class="s3">= &quot;medium.html&quot; </span><span class="s2">class </span><span class="s3">= &quot;link&quot;</span><span class="s0">&gt;&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;task-button&quot;</span><span class="s0">&gt;</span><span class="s1">Medium Problems</span><span class="s0">&lt;/h3&gt;&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href </span><span class="s3">= &quot;hard.html&quot; </span><span class="s2">class </span><span class="s3">= &quot;link&quot;</span><span class="s0">&gt;&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;task-button&quot;</span><span class="s0">&gt;</span><span class="s1">Hard Problems</span><span class="s0">&lt;/h3&gt;&lt;/a&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;hr </span><span class="s2">id</span><span class="s3">=&quot;bottom-divider&quot;</span><span class="s0">&gt;</span>
+
+
+        <span class="s0">&lt;h1 </span><span class="s2">class</span><span class="s3">=&quot;banner&quot;</span><span class="s0">&gt;</span><span class="s1">Easy Problems</span><span class="s0">&lt;/h1&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 1: Two Sum (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given an array of ints and are given a target int. The goal is to find two ints in the array that</span>
+                <span class="s1">sum to the target.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The easiest way to complete this problem is to have two loops that go through the array of nums and add</span>
+                <span class="s1">nums[i]+nums[j] if i!=j. If it equals the target return the indices of the two values.</span>
+                <span class="s1">However this solution is O(N^2) complexity and it can be done in O(N).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To do this problem in O(N) time complexity we will make a map. We will loop through the array of nums</span>
+                <span class="s1">and we will create an int that stores the complement of the current value (target-current). We will then check</span>
+                <span class="s1">to see if the complement is stored in the map (on the first value nothing will be in the map). If it is in the</span>
+                <span class="s1">map we will return the indices of the complement and the index of the current num. If the value is not in the</span>
+                <span class="s1">map we will add the current value and its index into the map and continue the for loop.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 2: Valid Parenthesis (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a string made up of '(',')','{','}','[', and ']'. You must check if there is a proper amount of</span>
+                <span class="s1">parenthesis meaning ( is followed by ) and the same for the others. When one set is opened it must be closed in</span>
+                <span class="s1">the correct order so ([{ must be followed by }]).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To do this problem I created a stack of characters and an int starting at 0. I then created a while loop to loop</span>
+                <span class="s1">through the string. I would add each (,{,[ to the stack and increment the int by 1. If I encountered ),},] I</span>
+                <span class="s1">would check if the stack was empty (if so returned false) then if the stack.top() was equal to the correct</span>
+                <span class="s1">parenthesis, either (,{, or [. If the right parenthesis was there I would pop it from the stack and increment</span>
+                <span class="s1">the int by 1. When the int equaled the length of the string I would check stack.empty() and return true if it</span>
+                <span class="s1">is empty and false if it is not.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 3: Merge Sorted Lists (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given the front of two sorted linked lists. You must return the head of a linked list that is the sorted</span>
+                <span class="s1">combination of the two given lists.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To do this problem I created two new nodes head and front to keep track of my new list. I began by checking if</span>
+                <span class="s1">either of the two given heads were NULL and if so I returned the opposing list. If neither were NULL I then</span>
+                <span class="s1">checked if head1-&gt;val &lt; head2-&gt;val. If so I set the head and front to head1 otherwise it would be set to head2.</span>
+                <span class="s1">I then created a while loop to loop if either list was not NULL. If both were not NULL I would compare the</span>
+                <span class="s1">current value, set the lower node to head-&gt;next, move that list to the next node, and move the head to the next</span>
+                <span class="s1">node (which was just added). If either list was finished I would then repeatedly add the nodes from the remaining</span>
+                <span class="s1">list until both were empty. When the loop was finished I returned front which was the head of the newly sorted</span>
+                <span class="s1">merged list.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 4: Best Time to Buy and Sell Stock (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a list of ints and must determine and return the maximum profit you can earn if you buy the</span>
+                <span class="s1">stock and sell the stock a different day in the FUTURE. The day is given by the index of the value. If there</span>
+                <span class="s1">is no day to buy and sell the stock for a profit then return 0.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">My first solution to this problem had a better runtime than the second. I used three variables, buy1, sell1,</span>
+                <span class="s1">and buy2. I started each at -1 and began looping through the list. If sell1 and buy1 were -1 then I would set</span>
+                <span class="s1">buy1 to the current value (first value). Then, if sell1 was -1 and the current value was less than buy1, I would</span>
+                <span class="s1">update buy1 to that value. If the current value was greater than buy1 I would set that value as sell1. I would</span>
+                <span class="s1">update sell1 to a larger value if the current value was larger than the current sell1. Now that</span>
+                <span class="s1">I had a buy and sell value I would check to see if there were more optimal times to buy and sell later on. I</span>
+                <span class="s1">checked if I had a buy and sell value, if the current value was less than buy1 I would set buy2 to that value.</span>
+                <span class="s1">For each following value I would either update buy2 to a smaller value if it was smaller than buy2 or check to</span>
+                <span class="s1">see if the difference between current and buy2 was greater than sell1 and buy1. If the current difference was</span>
+                <span class="s1">greater I would set buy1 = buy2, sell1 = current, buy2 = -1 and continue until the loop finished. I would then</span>
+                <span class="s1">return sell1-buy1.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The easier solution I found was to have an int low set to MAX_INT and a current_profit set to 0. I would then</span>
+                <span class="s1">loop through the list of ints and if the current int was less than low I would update low to the current int.</span>
+                <span class="s1">I would then check to see if selling at the current value would result in a profit greater than current_profit.</span>
+                <span class="s1">If it did I would update current_profit to the new greater value. When the loop ended I returned current_profit.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 5: Valid Palindrome (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a string with characters and must determine if all the alphanumeric characters converted to</span>
+                <span class="s1">lowercase will create a valid palindrome.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">I created a for loop with ints i and j, i at 0 and j at s.length()-1. The loop runs while i &lt; j with i</span>
+                <span class="s1">being incremented by 1 and being j decremented by 1 each loop. There is then a while loop that runs while s[i]</span>
+                <span class="s1">is not an alphanumeric character and i &lt; j. If this is true i is incremented by 1. The same is done with j</span>
+                <span class="s1">but while j &gt; i and j is decremented. Next I check if s[i] != s[j]. If this is true I return false as it is an</span>
+                <span class="s1">invalid palindrome. I return true after the for loop ends as it will have checked every character.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 6: Invert Binary Tree (Failed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a binary tree and must reverse all the nodes. Given [1, 2, 3, 4, 5, 6, 7] you must return the</span>
+                <span class="s1">top node (1) and the tree must look like [1, 3, 2, 7, 6, 5, 4].</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">After looking over a c++ solution I have come to an understanding of how to recursively solve the problem.</span>
+                <span class="s1">Start by checking if the given root is null, if so return it. Next make a recursive call for the root-&gt;left</span>
+                <span class="s1">followed by a recursive call for root-&gt;right. This will cause you to travel down the left side of the tree</span>
+                <span class="s1">and only stop once you reach the left most bottom node. After the recursive calls swap the nodes by having</span>
+                <span class="s1">a storage node holding node-&gt;left and setting node-&gt;left = node-&gt;right and node-&gt;right = storage. Following</span>
+                <span class="s1">this return the node. Returning the node will give each recursive call a node that will be unused. However,</span>
+                <span class="s1">for the initial call it will return the top node of the tree which is the goal. When the bottom most left node</span>
+                <span class="s1">is reached, it will swap what is beneath if there is a node below and return. This will result in the parent</span>
+                <span class="s1">node being looked at. The parent node will then do the same for nodes on the right side. After it's child</span>
+                <span class="s1">left and right nodes have swapped all their children, it will swap the left and right nodes and return itself.</span>
+                <span class="s1">This process continues until all nodes are swapped and the top node is returned.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;problem&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 7: Valid Anagram (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given two strings made up of lower case letters and must determine if you can make the second string</span>
+                <span class="s1">using the letters of the first string.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The solution I came up with was sorting both strings and comparing, returning false if they were different</span>
+                <span class="s1">and true if they were the same. (If each has the same letters they can both be ordered any way and be the</span>
+                <span class="s1">same).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The more efficient solution is to first check if the lengths of the strings are equal, if they are not return</span>
+                <span class="s1">false. If they are, create a for loop for the length of the strings and add one to the array at the index of</span>
+                <span class="s1">the character for string 1 (0 for 'a', 1 for 'b') using array[s[i]-'a']++; to increment at the proper index.</span>
+                <span class="s1">Then do the same for each character in string 2 but decrement (--) instead of incrementing. After the loop</span>
+                <span class="s1">has finished check all indices of the array. If any index is not 0, return false, if they are all 0, return</span>
+                <span class="s1">true.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 8: Binary Search (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a sorted list of values and must find and return the target value in log(n) time. (Or return -1</span>
+                <span class="s1">if the target value is not in the list).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem I had two integer values low = 0 and high = list.size()-1. (The lowest and highest index</span>
+                <span class="s1">for values). I then created a while loop to continue while low &lt;= high meaning everything has not been checked</span>
+                <span class="s1">yet. Inside the while loop I initialized an int middle that was low + (high-low)/2 as this would find the</span>
+                <span class="s1">midpoint between my current low and high. I would then check if list[middle] == target, if not, check target &gt;</span>
+                <span class="s1">list[middle]. If the target was greater I set my low value to middle + 1 as I want to only look at values that</span>
+                <span class="s1">are greater than what I just checked. If the target was less than what I checked high = middle - 1 as I want to</span>
+                <span class="s1">check values less than what I last checked. When the loop ends I return -1 as the value was not in the list.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 9: Flood Fill (Failed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a 2-D matrix of ints representing color values. You are also given a starting row, starting col</span>
+                <span class="s1">and a new color value. Change the color of the starting square and any 4-way connecting piece (up/down/left/</span>
+                <span class="s1">right). Continue until all connected pieces have changed color.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The solution I found is to use depth first search where you use recursion to perform DFS. Create a helper</span>
+                <span class="s1">function called dfs and set up an if statement to check if the given row is valid and the given column is</span>
+                <span class="s1">valid. Then check that the current square does not already have the updated color, and that the current</span>
+                <span class="s1">square has the initial color. After this check change the color of the given square, and run dfs four times</span>
+                <span class="s1">for the four connecting squares. ( dfs(matrix, row+1, col, color, initial_color) ) like so but with -1 to</span>
+                <span class="s1">row and +1/-1 for the column as well. In the main function run dfs with the initial values and return the</span>
+                <span class="s1">matrix after.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 10: Lowest Common Ancestor of a Binary Search Tree (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a binary search tree and two values that are in the tree. You must return the node lowest in</span>
+                <span class="s1">the tree that has both values as either itself or a descendant node.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem I first checked if either node was the root, if so I returned the root. Next I created</span>
+                <span class="s1">a while loop to loop as long as the values were both greater or both less than the current node I was looking</span>
+                <span class="s1">at. If they were both greater I would have current = current-&gt;right and if they were both less I would have</span>
+                <span class="s1">current = current-&gt;left. When the loop finished I returned current. This works because both values being</span>
+                <span class="s1">greater or less than the current means you can progress to the next level of the tree. When one value is</span>
+                <span class="s1">greater and the other is less (or equal) then that will mean they split into different parts of the tree</span>
+                <span class="s1">so there cannot be a lower common ancestor.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 11: Balanced Binary Tree (Failed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a binary tree and must check if it is balanced. Balanced means that the left and right</span>
+                <span class="s1">subtrees of every node differs in height by 1 or 0.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The solution I found to this problem is to create a helper function height to determine the height of a</span>
+                <span class="s1">tree. If the root is a nullptr height return 0, after this check height returns the max of height(root-&gt;right)</span>
+                <span class="s1">and height(root-&gt;left) + 1. The +1 is to increase the height including the current node. In the isBalanced</span>
+                <span class="s1">function I return true if the root is a nullptr. Then I return the check for all necessary situations. I return</span>
+                <span class="s1">isBalanced(root-&gt;right) &amp;&amp; isBalanced(root-&gt;left) &amp;&amp; abs(height(root-&gt;right) - height(root-&gt;left)) &lt;= 1 to</span>
+                <span class="s1">check each subtree of the current node, and check that the heights of the subtrees are the appropriate</span>
+                <span class="s1">length. The return statement returns true if all conditions are met and false if any node has an imbalanced</span>
+                <span class="s1">node.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 12: Linked List Cycle (Failed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a singularly linked list and must check if there is a cycle in it. (The tail node points to a</span>
+                <span class="s1">previous node instead of null).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The solution I found uses something called a fast and slow pointer. The fast and slow pointers both point to</span>
+                <span class="s1">head. Then there is a while loop that loops while fast and fast-&gt;next are not null. In the loop fast is moved</span>
+                <span class="s1">to fast-&gt;next-&gt;next and slow is moved to slow-&gt;next. The fast pointer moves to nodes at a time while slow only</span>
+                <span class="s1">moves once hence the names. After each pointer is moved, if fast==slow then return true as this means the</span>
+                <span class="s1">fast pointer reached the tail and had looped around. If the loop finishes return false as there is an end and</span>
+                <span class="s1">not a cycle.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 13: Implement Queue using Stacks (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are allowed to use 2 stacks and must use them to act as a queue.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">I made two stacks, s1 and s2. For empty() I just did s1.empty() as they are equivalent for queues and stacks.</span>
+                <span class="s1">For push() I did s1.push() as it would add the element to the front of the stack but the &quot;end&quot; of the queue.</span>
+                <span class="s1">For pop() I would continuously push(s1.top()) into s2 until s1.size() == 1. I then made an int popped to hold</span>
+                <span class="s1">the first element added to the queue (s1) and then popped it from s1. I then pushed all of s2 into s1 the same</span>
+                <span class="s1">way and returned int popped. For peek() I did the same thing as pop() except I did not pop the last element in</span>
+                <span class="s1">s1.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 14: First Bad Version (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given an API to isBadVersion(int version) that will return true if the int is the bad version and false</span>
+                <span class="s1">if it was not a bad version. You must determine the int value that is the first bad version (all following versions</span>
+                <span class="s1">are bad).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem use binary search to check ints in log(n) time. If isBadVersion(middle) == true then check if</span>
+                <span class="s1">isBadVersion(middle-1) == false. If so, return middle. If not, you must adjust the lower and upper bounds accordingly</span>
+                <span class="s1">and continue until lower bound &gt;= upper bound using a while loop. After the loop return any int value as the</span>
+                <span class="s1">solution will have been found.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 15: Ransom Note (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a string of characters for a ransom note and a string of characters in a magazine. You must</span>
+                <span class="s1">determine if you can make the ransom note with the characters in the magazine.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem, create two unordered_maps(char, int) and loop through both the ransom note and magazine.</span>
+                <span class="s1">Then for each character add it to the map if it is not there and increment the value by 1. Lastly loop through</span>
+                <span class="s1">ransom and check if each character in ransom has equal or fewer appearances as in the magazine map. If it doesn't</span>
+                <span class="s1">return false, if the loop ends, return true.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 16: Climbing Stairs (Failed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a number of stairs and must return the total number of ways you can climb the stairs by going up</span>
+                <span class="s1">either one step or two steps at a time.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">My initial thought was to use recursion which involved returning 1 if n=0 or n=1, and returning</span>
+                <span class="s1">climb(n-2) + climb(n-1) otherwise. This was unsuccessful as it would take to long for certain numbers. The better</span>
+                <span class="s1">way to do this problem is to have 3 int variables. one_step and two_step = 1 and total = 0. If n=0 return 0, if</span>
+                <span class="s1">n=1 return 1, and after these checks I made a for loop to go from i=2 to i&lt;=n incrementing by 1 for each loop.</span>
+                <span class="s1">In the loop set total = one_step + two_step, two_step = one_step, and one_step = total. This is the process</span>
+                <span class="s1">for determining a fibonacci number which is the solution to the problem. After the loop ends return total.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 17: Longest Palindrome (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a string of letters and must return the integer value of the longest palindrome you can create</span>
+                <span class="s1">given the letters of the string.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">For this problem I created an unordered_map of chars and ints. I looped through the string incrementing</span>
+                <span class="s1">with map[s[i]]++. After I looped through each character of the map with an iterator. I had an int variable</span>
+                <span class="s1">odds set to 0. If the number mapped to the current char was odd I would increment odds by 1. For each iteration</span>
+                <span class="s1">I incremented int max by the number mapped to the current char. After the loop if odds was greater than 1 I</span>
+                <span class="s1">returned max - odds + 1 and if odds was 0 I returned max - odds. This solution works because each odd counter</span>
+                <span class="s1">is just an even number + 1. Therefore, subtracting the number of odd occurring characters you will get the total</span>
+                <span class="s1">number of even characters you can put in the palindrome (plus an extra odd if there is one for the middle).</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 18: Reverse Linked List (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given the head of a linked list and must return the head of the linked list in reverse.</span>
+                <span class="s1">1-&gt;2-&gt;3-&gt;4-&gt;5 becomes 5-&gt;4-&gt;3-&gt;2-&gt;1.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem I returned head if the linked list was a nullptr or a single node. I created two</span>
+                <span class="s1">ListNode* variables n=head-&gt;next and storage. Next I set the head-&gt;next to nullptr as it was now the</span>
+                <span class="s1">end of the list. I then made a while loop that looped while n was not nullptr. In the loop I set</span>
+                <span class="s1">storage=n-&gt;next, n-&gt;next=head, head=n, and n=storage. This would make n point to the previous node, have</span>
+                <span class="s1">head to the current node, and n to the next node (or nullptr if last node was just checked). When the loop</span>
+                <span class="s1">ended I returned head as it would be set to the last node in the list.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 19: Majority Element (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a vector of ints with one value being more than half of the elements (the majority). You must</span>
+                <span class="s1">return this int value.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">I solved this problem by creating a map of ints and ints. I then looped through the vector incrementing</span>
+                <span class="s1">with map[int]++. After the increment I checked if map[int] &gt; vector.size()/2 and returned i if this was the</span>
+                <span class="s1">case. Outside I returned 0 as the loop would always find the int.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 20: Add Binary (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given two strings that represent binary numbers and must the return the string representing their</span>
+                <span class="s1">sum in binary.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">I solved this problem by creating a sum string &quot;&quot; and a bool carry. I looped through a and b with a while</span>
+                <span class="s1">loop and would take the last character of each, add them together with varying results added to the front</span>
+                <span class="s1">of sum depending on whether there was a carry, if there was a 1 and 1, 1 and 0, or 0 and 0. I then did the</span>
+                <span class="s1">same if there was only one string left with characters. Finally, I added a 1 to the front of sum if there was</span>
+                <span class="s1">a carry after each string was empty. I then returned sum.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 21: Diameter of Binary Tree (Failed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given the root to a binary tree and must return the length of the longest path from one node in the</span>
+                <span class="s1">tree to another. (This path can be through the root or just in another subtree).</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">The solution I found to this problem involved a helper function that would take the depth of a tree given a</span>
+                <span class="s1">root and an int for the current depth. If the root was a nullptr, 0 was returned. Otherwise, there were ints</span>
+                <span class="s1">created for the depth of the right and left with r = depth(root-&gt;right, cur) l = depth(root-&gt;left, cur).</span>
+                <span class="s1">These recursive calls were made to find the depth of the right and left subtrees. The current depth was then</span>
+                <span class="s1">updated to max(cur, r+l). This is done to check if the current subtree we are looking at has two nodes on</span>
+                <span class="s1">different branches that have a longer path than through the original node. If this is the case the cur longest</span>
+                <span class="s1">path would be r+l. Lastly max(r, l) +1 is returned to use the longest depth of the subtrees and +1 as we are</span>
+                <span class="s1">looking at a node one level down. In the main function cur = 0, depth(root, cur) is called, then cur is returned.</span>
+                <span class="s1">(cur is passed by reference so it can be updated).</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 22: Middle of the Linked List (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given the head of a linked list and must return the middle node. If there is an even number of nodes</span>
+                <span class="s1">you must return the second middle node.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem I used the fast and slow pointer method. I looped while fast &amp;&amp; fast-&gt;next. In the</span>
+                <span class="s1">loop I moved fast to fast-&gt;next-&gt;next and slow to slow-&gt;next. When the loop ended I returned slow. This</span>
+                <span class="s1">will return the middle pointer as the slow pointer will be at the middle when the fast pointer reaches null.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 23: Maximum Depth of a Binary Tree (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given the root of a binary tree and must return the length of the path from the root to the farthest</span>
+                <span class="s1">leaf node.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem I wrote the base case to return 0 if the root was null. Next I made an int right and</span>
+                <span class="s1">int left that would be equal to maxDepth(root-&gt;right) and maxDepth(root-&gt;left) respectively. I then returned</span>
+                <span class="s1">max(right, left) + 1. The +1 is to increment for each level you go down and the recursive calls will return</span>
+                <span class="s1">the solution.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+            <span class="s0">&lt;h3 </span><span class="s2">class</span><span class="s3">=&quot;title&quot;</span><span class="s0">&gt;</span><span class="s1">Problem 24: Contains Duplicate (Passed)</span><span class="s0">&lt;/h3&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">You are given a vector of ints and must return true if there is a duplicate number in the vector and return</span>
+                <span class="s1">false if each number is unique.</span>
+            <span class="s0">&lt;/p&gt;</span>
+            <span class="s0">&lt;p&gt;</span>
+                <span class="s1">To solve this problem I made an unordered map of ints and ints. I then looped through the vector and incremented</span>
+                <span class="s1">with map[i]++. In the loop I checked if map[i] was greater than 1, if so I returned true. Outside of the</span>
+                <span class="s1">loop I returned false as this meant there were no duplicates.</span>
+            <span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+
+
+    <span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
